@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+@layer base {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .card {
+    @apply p-2 h-[200px] bg-slate-200 rounded-xl flex flex-col justify-center items-center hover:bg-slate-300 border border-slate-300 cursor-pointer;
+  }
+
+  .resetButton {
+    @apply px-2 py-0.5 bg-slate-200 border border-slate-300 hover:bg-slate-300 rounded-md;
+  }
+
+  .button {
+    @apply px-4 h-[40px] border-2 border-slate-500 rounded-lg hover:bg-slate-300;
+  }
+
+  .pageContainer {
+    @apply w-full mt-[100px] flex flex-col items-center justify-center;
+  }
+
+  .pageSubcontainer {
+    @apply w-[350px] flex flex-col gap-4;
+  }
+
+  .componentContainer {
+    @apply p-4 flex flex-col gap-4 border border-slate-500 rounded-xl;
+  }
+
+  .input {
+    @apply px-3 w-full border border-slate-400 h-[40px] rounded-lg outline-blue-500;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
