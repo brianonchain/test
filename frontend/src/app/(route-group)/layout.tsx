@@ -1,8 +1,8 @@
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  console.log("sublayout rendered once");
+  console.log("route-group layout.tsx");
   return (
     <div>
-      <div className="bg-blue-900 text-white">Route-Group Layout</div>
+      <div className="">Route-Group Layout</div>
       {children}
     </div>
   );

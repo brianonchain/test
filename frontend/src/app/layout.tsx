@@ -4,6 +4,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Providers from "@/Providers";
 import { headers } from "next/headers";
+import Navbar from "./_components/Navbar";
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -30,7 +31,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-        <div className="bg-blue-900 text-white">Root Layout</div>
+        <Navbar />
         <Providers cookies={cookies}>{children}</Providers>
       </body>
     </html>

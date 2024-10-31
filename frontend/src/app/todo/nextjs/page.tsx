@@ -13,12 +13,16 @@ export default async function page() {
   try {
     await dbConnect();
     // var doc = await getCachedDoc();
-    console.log("above MongoDB call");
+    console.log("/todo/nextjs page.tsx above MongoDB call");
     var doc = await TodoModel.findOne({ user: "brianonchain" });
     var todos = doc.todos;
   } catch (e) {
     console.log(e);
   }
+
+  const res = await fetch("https://brianonchain-test-334a237be634.herokuapp.com/ping");
+  const data = await res.json();
+  console.log("/todo/nextjs page.tsx heroku:", data);
 
   return (
     <div className="pageContainer">
@@ -27,9 +31,9 @@ export default async function page() {
           <div>page.tsx</div>
         </div>
         <Client1 todos={todos} />
-        {/* <Suspense key={todos} fallback={<div>Loading...</div>}> */}
-        <Server1 />
-        {/* </Suspense> */}
+        <Suspense fallback={<div>Loading...</div>}>
+          <Server1 />
+        </Suspense>
       </div>
     </div>
   );

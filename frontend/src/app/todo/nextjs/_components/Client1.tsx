@@ -7,7 +7,9 @@ import { useRouter } from "next/navigation";
 import { setCookie, createTodoAction, mutateTodoAction } from "@/actions";
 
 export default function Client1({ todos }: { todos: string[] }) {
-  console.log("/todo/nextjs Client1.tsx", "todos:", todos);
+  // time
+  const date = new Date();
+  const time = date.toLocaleTimeString("en-US", { hour12: false }) + `.${date.getMilliseconds()}`;
 
   // states
   const [title, setTitle] = useState("");
@@ -23,11 +25,22 @@ export default function Client1({ todos }: { todos: string[] }) {
   // hooks
   const [isPending, startTransition] = useTransition();
 
+  // console.log
+  console.log("/todo/nextjs Client1.tsx", time, "todos:", todos);
+
+  // functions
   const addTodo = (title: string) => {
     if (title) {
+      // time
+      const date = new Date();
+      const time = date.toLocaleTimeString("en-US", { hour12: false }) + `.${date.getMilliseconds()}`;
+      console.log("addTodo", time);
+
       setTitle("");
+
       startTransition(async () => {
         mutateOptimisticTodos({ action: "add", title: title });
+        console.log("after mutateOptimistic");
         await mutateTodoAction({ action: "add", title: title });
       });
     }

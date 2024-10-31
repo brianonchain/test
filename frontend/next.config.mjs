@@ -6,9 +6,9 @@ const nextConfig = {
     return config;
   },
   experimental: {
-    staleTimes: {
-      dynamic: 30,
-    },
+    // staleTimes: {
+    //   dynamic: 30,
+    // },
   },
 };
 
