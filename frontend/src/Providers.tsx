@@ -23,11 +23,15 @@ function getQueryClient() {
   const date = new Date();
   const time = date.toLocaleTimeString("en-US", { hour12: false }) + `.${date.getMilliseconds()}`;
   if (isServer) {
-    console.log("server querClient created", time);
+    console.log("server queryClient created", time);
     return makeQueryClient(); // Server: always make a new query client
   } else {
-    console.log("browser querClient created", time);
-    if (!browserQueryClient) browserQueryClient = makeQueryClient(); // Browser: make a new query client if we don't already have one. This is very important, so we don't re-make a new client if React suspends during the initial render. This may not be needed if we have a suspense boundary BELOW the creation of the query client
+    if (!browserQueryClient) {
+      browserQueryClient = makeQueryClient(); // Browser: make a new query client if we don't already have one. This is very important, so we don't re-make a new client if React suspends during the initial render. This may not be needed if we have a suspense boundary BELOW the creation of the query client
+      console.log("browser queryClient created");
+    } else {
+      console.log("browser queryClient already exists");
+    }
     return browserQueryClient;
   }
 }
