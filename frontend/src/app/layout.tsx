@@ -25,8 +25,11 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  console.log("root layout.tsx");
-  const cookies = (await headers()).get("cookie");
+  const date = new Date();
+  const time = date.toLocaleTimeString("en-US", { hour12: false }) + `.${date.getMilliseconds()}`;
+  console.log("root layout.tsx", time);
+  // const cookies = (await headers()).get("cookie");
+  const cookies = "hi";
 
   return (
     <html lang="en">

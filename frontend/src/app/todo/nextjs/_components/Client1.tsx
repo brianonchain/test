@@ -37,16 +37,14 @@ export default function Client1({ todos }: { todos: string[] }) {
       console.log("addTodo", time);
 
       setTitle("");
-
       startTransition(async () => {
         mutateOptimisticTodos({ action: "add", title: title });
-        console.log("after mutateOptimistic");
         await mutateTodoAction({ action: "add", title: title });
       });
     }
   };
 
-  const deleteTodo = (title: string, index: number) => {
+  const deleteTodo = (index: number) => {
     startTransition(async () => {
       mutateOptimisticTodos({ action: "delete", index: index });
       mutateTodoAction({ action: "delete", index: index });
@@ -69,7 +67,7 @@ export default function Client1({ todos }: { todos: string[] }) {
         {optimisiticTodos.map((i, index) => (
           <div key={index} className="w-full flex justify-between">
             <p>{i}</p>
-            <button className="text-blue-500 hover:underline underline-offset-4" onClick={() => deleteTodo(title, index)}>
+            <button className="text-blue-500 hover:underline underline-offset-4" onClick={() => deleteTodo(index)}>
               remove
             </button>
           </div>

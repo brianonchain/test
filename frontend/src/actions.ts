@@ -36,6 +36,7 @@ export async function mutateTodoAction({ action, title, index }: { action: strin
     console.log(e);
   } finally {
     console.log("path revalidated");
-    revalidateTag("todos");
+    // revalidateTag("todos");
+    revalidatePath("/todo/nextjs");
   }
 }

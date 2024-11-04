@@ -2,7 +2,7 @@
 import { setCookie } from "@/actions";
 
 export default function ClientComponent({ color }: { color: string | undefined }) {
-  console.log("/cookies Client1.tsx", "\ncolor:", color);
+  console.log("/cookies Client1.tsx color:", color);
 
   return (
     <div className="p-4 flex flex-col gap-4 border border-slate-500 rounded-xl">
