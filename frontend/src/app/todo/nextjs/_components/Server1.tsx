@@ -9,7 +9,7 @@ export default async function Server1() {
   console.log("/todo/nextjs Server1.tsx before 5s delay", time1);
 
   try {
-    const res = await fetch("https://mockanapi.com/s/67188f70da9fa4544af140d7/test?mock_delay=5000");
+    const res = await fetch("https://mockanapi.com/s/67188f70da9fa4544af140d7/test?mock_delay=2000");
     var data = await res.json();
   } catch {
     console.log("5s mockapi failed");

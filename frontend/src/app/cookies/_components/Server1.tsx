@@ -5,7 +5,7 @@ export default async function Server1() {
 
   console.log("/cookies Server1.tsx, before 3s delay");
 
-  const res = await fetch("https://mockanapi.com/s/67188f70da9fa4544af140d7/test?mock_delay=3000", {
+  const res = await fetch("https://mockanapi.com/s/67188f70da9fa4544af140d7/test?mock_delay=2000", {
     method: "GET",
     cache: "force-cache",
   });
