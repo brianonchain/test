@@ -47,6 +47,10 @@ input[type="number"] {
   .input {
     @apply px-3 w-full border border-slate-400 h-[40px] rounded-lg outline-blue-500;
   }
+
+  .observerSection {
+    @apply h-screen;
+  }
 }
 
 @layer utilities {

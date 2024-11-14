@@ -9,6 +9,8 @@ export const links = [
   { title: "URL Params", path: "/url-params" },
   { title: "URL Search Parms", path: "/url-search-params" },
   { title: "Cookies", path: "/cookies" },
+  { title: "Intersection Observer", path: "/observer" },
+  { title: "Flash Payments Mock", path: "/flash-payments-mock" },
 ];
 
 export default function Navbar() {

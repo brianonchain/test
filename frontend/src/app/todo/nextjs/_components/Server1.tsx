@@ -9,7 +9,7 @@ export default async function Server1() {
   console.log("/todo/nextjs Server1.tsx before 5s delay", time1);
 
   try {
-    const res = await fetch("https://mockanapi.com/s/67188f70da9fa4544af140d7/test?mock_delay=2000");
+    const res = await fetch("https://brianonchain-test-334a237be634.herokuapp.com/delay3s");
     var data = await res.json();
   } catch {
     console.log("5s mockapi failed");
@@ -18,7 +18,8 @@ export default async function Server1() {
   // heroku
   // const resFromHeroku = await fetch("https://brianonchain-test-334a237be634.herokuapp.com/ping");
   // const dataFromHeroku = await resFromHeroku.json();
-  const dataFromHeroku = (await axios.get("https://brianonchain-test-334a237be634.herokuapp.com/ping")).data;
+  // const { data: dataFromHeroku } = await axios.get("https://brianonchain-test-334a237be634.herokuapp.com/ping");
+  const dataFromHeroku = "placeholder";
 
   // time
   const date2 = new Date();

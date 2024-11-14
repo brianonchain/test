@@ -7,7 +7,7 @@ import { Suspense } from "react";
 export default async function page() {
   const color = (await cookies()).get("color")?.value;
 
-  // const res = await fetch("https://mockanapi.com/s/67188f70da9fa4544af140d7/test?mock_delay=3000", {
+  // const res = await fetch("https://brianonchain-test-334a237be634.herokuapp.com/delay3s", {
   //   method: "GET",
   //   cache: "force-cache",
   // });

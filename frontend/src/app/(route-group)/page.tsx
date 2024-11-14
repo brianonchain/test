@@ -13,7 +13,7 @@ export default async function Home() {
         <ConnectButton />
       </div>
       {links.map((i) => (
-        <Link href={`/${i.path}`}>
+        <Link href={i.path}>
           <div className="card">{i.title}</div>
         </Link>
       ))}

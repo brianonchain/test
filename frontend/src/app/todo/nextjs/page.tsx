@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { cookies } from "next/headers";
 // db
 import dbConnect from "@/db/dbConnect";
 import TodoModel from "@/db/TodoModel";
@@ -16,20 +17,28 @@ export default async function page() {
   const date = new Date();
   const time = date.toLocaleTimeString("en-US", { hour12: false }) + `.${date.getMilliseconds()}`;
 
-  try {
-    await dbConnect();
-    // var doc = await getCachedDoc();
-    var doc = await TodoModel.findOne({ user: "brianonchain" });
-    var todos = doc.todos;
-  } catch (e) {
-    console.log(e);
+  // get cookies
+  const username = (await cookies()).get("username")?.value;
+
+  // get todo list
+  let todos = [];
+  if (username) {
+    try {
+      await dbConnect();
+      // var doc = await getCachedDoc();
+      var doc = await TodoModel.findOne({ user: username });
+      todos = doc.todos;
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   // const res = await fetch("https://brianonchain-test-334a237be634.herokuapp.com/ping");
   // const data = await res.json();
-  const { data } = await axios.get("https://brianonchain-test-334a237be634.herokuapp.com/ping");
+  // const { data } = await axios.get("https://brianonchain-test-334a237be634.herokuapp.com/ping");
+  const data = "placeholder";
 
-  console.log("/todo/nextjs page.tsx:", time, "heroku:", data, "todos.length:", todos.length);
+  console.log("/todo/nextjs page.tsx:", time, "heroku:", data, "todos.length:", todos?.length ?? "undefined");
 
   return (
     <div className="pageContainer">

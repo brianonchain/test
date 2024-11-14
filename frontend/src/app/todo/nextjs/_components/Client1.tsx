@@ -3,13 +3,22 @@
 import { useState, useEffect, useOptimistic, useTransition } from "react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { getCookie } from "cookies-next";
 // actions
-import { setCookie, createTodoAction, mutateTodoAction } from "@/actions";
+import { setCookie, createTodoAction, mutateTodoAction, setUsernameCookieAction } from "@/actions";
 
 export default function Client1({ todos }: { todos: string[] }) {
   // time
   const date = new Date();
   const time = date.toLocaleTimeString("en-US", { hour12: false }) + `.${date.getMilliseconds()}`;
+
+  // set username cookie if none
+  useEffect(() => {
+    const username = getCookie("username");
+    if (!username) {
+      setUsernameCookieAction("brianonchain");
+    }
+  }, []);
 
   // states
   const [title, setTitle] = useState("");

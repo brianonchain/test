@@ -6,7 +6,7 @@ export default async function Server1() {
   const time1 = date1.toLocaleTimeString("en-US", { hour12: false }) + `.${date1.getMilliseconds()}`;
   console.log("Server1.tsx time1", time1);
 
-  const res = await fetch("https://mockanapi.com/s/67188f70da9fa4544af140d7/test?mock_delay=2000", { cache: "force-cache" });
+  const res = await fetch("https://brianonchain-test-334a237be634.herokuapp.com/delay3s", { cache: "force-cache" });
   const data = await res.json();
   console.log("3s delay");
 

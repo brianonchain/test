@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect, useContext, createContext } from "react";
 import { wagmiAdapter, projectId } from "@/config";
 import { cookieToInitialState, WagmiProvider, type Config } from "wagmi";
 import { createAppKit } from "@reown/appkit/react";
@@ -59,17 +60,30 @@ const modal = createAppKit({
   },
 });
 
+// create user info context
+const UserInfoContext = createContext<string | null>(null);
+export const useUserInfo = () => useContext(UserInfoContext);
+
 export default function Providers({ children, cookies }: { children: React.ReactNode; cookies: string | null }) {
   const date = new Date();
   const time = date.toLocaleTimeString("en-US", { hour12: false }) + `.${date.getMilliseconds()}`;
   console.log("Providers.tsx", time);
 
+  const [userInfo, setUserInfo] = useState<string | null>(null);
+
+  useEffect(() => {
+    console.log("Providers.tsx useEffect");
+    setUserInfo("brianonchain");
+  }, []);
+
   const initialState = cookieToInitialState(wagmiAdapter.wagmiConfig as Config, cookies);
   const queryClient = getQueryClient();
 
   return (
-    <WagmiProvider config={wagmiAdapter.wagmiConfig as Config} initialState={initialState}>
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-    </WagmiProvider>
+    <UserInfoContext.Provider value={userInfo}>
+      <WagmiProvider config={wagmiAdapter.wagmiConfig as Config} initialState={initialState}>
+        <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      </WagmiProvider>
+    </UserInfoContext.Provider>
   );
 }

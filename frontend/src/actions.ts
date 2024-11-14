@@ -18,6 +18,10 @@ export async function createTodoAction() {
   await TodoModel.create({ user: "brianonchain", todos: [] });
 }
 
+export async function setUsernameCookieAction(username: string) {
+  (await cookies()).set("username", username);
+}
+
 export async function mutateTodoAction({ action, title, index }: { action: string; title?: string; index?: number }) {
   try {
     // await new Promise((resolve) => setTimeout(resolve, 3000));
