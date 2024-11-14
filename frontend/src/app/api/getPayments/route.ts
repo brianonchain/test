@@ -8,7 +8,7 @@ export async function POST(req: Request) {
   await dbConnect();
 
   try {
-    var { todos } = await TodoModel.findOne({ user: idToken });
+    const { todos } = await TodoModel.findOne({ user: idToken });
     return Response.json(todos);
   } catch (e) {
     console.log(e);

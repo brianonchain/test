@@ -1,6 +1,5 @@
 import { cookies } from "next/headers";
 import Client1 from "./_components/Client1";
-import Client2 from "./_components/Client2";
 import Server1 from "./_components/Server1";
 import { Suspense } from "react";
 

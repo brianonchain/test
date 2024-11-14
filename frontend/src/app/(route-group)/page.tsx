@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { cookies } from "next/headers";
 import ConnectButton from "../_components/ConnectButton";
 import { links } from "@/app/_components/Navbar";
 
@@ -12,8 +11,8 @@ export default async function Home() {
       <div className="col-span-full flex justify-end">
         <ConnectButton />
       </div>
-      {links.map((i) => (
-        <Link href={i.path}>
+      {links.map((i, index) => (
+        <Link key={index} href={i.path}>
           <div className="card">{i.title}</div>
         </Link>
       ))}

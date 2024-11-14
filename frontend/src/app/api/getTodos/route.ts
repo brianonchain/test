@@ -7,7 +7,7 @@ export async function POST(req: Request) {
   await dbConnect();
 
   try {
-    var { todos } = await TodoModel.findOne({ user: username });
+    const { todos } = await TodoModel.findOne({ user: username });
     return Response.json(todos);
   } catch (e) {
     console.log(e);

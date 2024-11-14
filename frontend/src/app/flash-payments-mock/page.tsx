@@ -6,7 +6,7 @@ import Cashout from "./_components/Cashout";
 import Settings from "./_components/Settings";
 import Navbar from "./_components/Navbar";
 
-export default function page() {
+export default function Page() {
   console.log("/flash page.tsx");
 
   const [menu, setMenu] = useState("payments"); // payments | cashout | settings

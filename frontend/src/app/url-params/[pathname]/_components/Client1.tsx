@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 // actions
 import { setCookie } from "@/actions";
 // functions
-// import { getCookie } from "@/utils/functions";
 import { getCookie } from "cookies-next";
 
 export default function Client1() {

@@ -9,8 +9,7 @@ export default async function Server1() {
   console.log("/todo/nextjs Server1.tsx before 5s delay", time1);
 
   try {
-    const res = await fetch("https://brianonchain-test-334a237be634.herokuapp.com/delay3s");
-    var data = await res.json();
+    await fetch("https://brianonchain-test-334a237be634.herokuapp.com/delay3s");
   } catch {
     console.log("5s mockapi failed");
   }

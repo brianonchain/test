@@ -8,7 +8,6 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 // actions
 import { setCookie } from "@/actions";
 // functions
-// import { getCookie } from "@/utils/functions";
 import { getCookie } from "cookies-next";
 // db
 import dbConnect from "@/db/dbConnect";

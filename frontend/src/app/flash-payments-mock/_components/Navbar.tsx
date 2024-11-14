@@ -1,5 +1,5 @@
 "use client";
-export default function Navbar({ menu, setMenu }: { menu: string; setMenu: any }) {
+export default function Navbar({ menu, setMenu }: { menu: string; setMenu: React.Dispatch<React.SetStateAction<string>> }) {
   const tabs = ["payments", "cashout", "settings"];
 
   return (
